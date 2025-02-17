@@ -1,10 +1,12 @@
-import { useState } from "react";
 import { Input } from "../../input";
-import Image from "next/image";
 
-const NMImageUploader = () => {
-    const [imageFiles, setImageFiles] = useState<File[] | []>([]);
-    const [imagePreview, setImagePreview] = useState<string[] | []>([]);
+type TImageUploader = {
+    setImageFiles: React.Dispatch<React.SetStateAction<File[]>>;
+    setImagePreview: React.Dispatch<React.SetStateAction<string[]>>;
+  };
+
+const NMImageUploader = ({setImageFiles,
+    setImagePreview}: TImageUploader) => {
     
     const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files![0];
@@ -29,12 +31,6 @@ const NMImageUploader = () => {
             >
                 Upload Images
             </label>
-
-            <div>
-                {
-                    imagePreview?.map((image, ind) => <Image key={ind} src={image} alt="image" width={500} height={500} />)
-                }
-            </div>
         </div>
     );
 };
