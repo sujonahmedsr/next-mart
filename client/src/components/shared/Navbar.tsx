@@ -14,13 +14,20 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { usePathname, useRouter } from "next/navigation";
+import { protectedRoutes } from "@/contants";
 
 export default function Navbar() {
   const { user, setIsLoading } = useUser()
+  const pathname = usePathname()
+  const router = useRouter()
 
   const handleLogOut = () => {
     logout()
     setIsLoading(true);
+    if(protectedRoutes.some((route) => pathname.match(route))){
+      router.push("/");
+    }
   }
   return (
     <header className="border-b w-full">

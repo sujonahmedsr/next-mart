@@ -82,7 +82,7 @@ const CreateShopForm = () => {
                                 <FormItem className="mb-3">
                                     <FormLabel>Shop Name</FormLabel>
                                     <FormControl>
-                                        <Input {...field} value={field.value || ""} />
+                                        <Input {...field} placeholder="Shop Name" value={field.value || ""} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -95,7 +95,7 @@ const CreateShopForm = () => {
                                 <FormItem>
                                     <FormLabel>Business License Number</FormLabel>
                                     <FormControl>
-                                        <Input {...field} value={field.value || ""} />
+                                        <Input {...field} placeholder="Business License Number" value={field.value || ""} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -109,7 +109,7 @@ const CreateShopForm = () => {
                                 <FormItem>
                                     <FormLabel>Address</FormLabel>
                                     <FormControl>
-                                        <Input {...field} value={field.value || ""} />
+                                        <Input {...field} placeholder="Address" value={field.value || ""} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -122,7 +122,7 @@ const CreateShopForm = () => {
                                 <FormItem>
                                     <FormLabel>Contact Number</FormLabel>
                                     <FormControl>
-                                        <Input {...field} value={field.value || ""} />
+                                        <Input {...field} placeholder="01*********" value={field.value || ""} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -135,7 +135,7 @@ const CreateShopForm = () => {
                                 <FormItem>
                                     <FormLabel>Website</FormLabel>
                                     <FormControl>
-                                        <Input {...field} value={field.value || ""} />
+                                        <Input {...field} placeholder="http://***.com" value={field.value || ""} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -149,7 +149,7 @@ const CreateShopForm = () => {
                                 <FormItem>
                                     <FormLabel>Established Year</FormLabel>
                                     <FormControl>
-                                        <Input {...field} value={field.value || ""} />
+                                        <Input placeholder="Like - 1992" {...field} value={field.value || ""} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -162,7 +162,7 @@ const CreateShopForm = () => {
                                 <FormItem>
                                     <FormLabel>Tax Identification Number</FormLabel>
                                     <FormControl>
-                                        <Input {...field} value={field.value || ""} />
+                                        <Input {...field} placeholder="Tax Identification Number" value={field.value || ""} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -176,7 +176,7 @@ const CreateShopForm = () => {
                                 <FormItem>
                                     <FormLabel>Facebook</FormLabel>
                                     <FormControl>
-                                        <Input {...field} value={field.value || ""} />
+                                        <Input {...field} placeholder="Facebook" value={field.value || ""} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -189,7 +189,7 @@ const CreateShopForm = () => {
                                 <FormItem>
                                     <FormLabel>Twitter</FormLabel>
                                     <FormControl>
-                                        <Input {...field} value={field.value || ""} />
+                                        <Input {...field} placeholder="Twitter" value={field.value || ""} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -202,7 +202,7 @@ const CreateShopForm = () => {
                                 <FormItem>
                                     <FormLabel>Instagram</FormLabel>
                                     <FormControl>
-                                        <Input {...field} value={field.value || ""} />
+                                        <Input {...field} placeholder="Instagram" value={field.value || ""} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -220,6 +220,7 @@ const CreateShopForm = () => {
                                         <FormLabel>Services Offered</FormLabel>
                                         <FormControl>
                                             <Textarea
+                                            placeholder="Services Offered"
                                                 className="h-36"
                                                 {...field}
                                                 value={field.value || ""}
