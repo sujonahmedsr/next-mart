@@ -39,7 +39,7 @@ export function NMTable<TData, TValue>({
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => {
                 return (
-                  <TableHead key={header.id}>
+                  <TableHead className="bg-gray-200" key={header.id}>
                     {header.isPlaceholder
                       ? null
                       : flexRender(

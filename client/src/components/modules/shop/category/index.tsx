@@ -94,7 +94,7 @@ const ManageCategories = ({ categories }: TCategoriesProps) => {
 
     return (
         <div>
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between mb-4">
                 <h1 className="text-xl font-bold">Manage Categories</h1>
                 <CreateCategoryModal />
             </div>
