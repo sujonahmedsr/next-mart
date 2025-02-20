@@ -16,7 +16,7 @@ import Link from "next/link";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { useState } from "react";
-import Logo from "@/app/assets/Logo";
+import Logo from "@/assets/Logo";
 import { loginSchema } from "./loginValidation";
 import { loginUser, reCaptchaTokenVerification } from "@/services/AuthService";
 import { useRouter, useSearchParams } from "next/navigation";

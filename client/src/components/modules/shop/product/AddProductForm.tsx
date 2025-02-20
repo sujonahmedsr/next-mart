@@ -37,7 +37,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { IBrand } from "@/types/brand";
 import { getAllBrands } from "@/services/brand";
-import Logo from "@/app/assets/Logo";
+import Logo from "@/assets/Logo";
 
 export default function AddProductsForm() {
   const [imageFiles, setImageFiles] = useState<File[] | []>([]);

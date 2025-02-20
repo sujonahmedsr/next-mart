@@ -1,5 +1,5 @@
 
-import Logo from "@/app/assets/Logo";
+import Logo from "@/assets/Logo";
 import { Facebook, Instagram, X } from "lucide-react";
 import Link from "next/link";
 

@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import Logo from "@/app/assets/Logo";
 import { Button } from "@/components/ui/button";
 import NMImageUploader from "@/components/ui/core/NMImageUploader";
 import ImagePreviewer from "@/components/ui/core/NMImageUploader/ImagePreviewer";
@@ -21,6 +20,7 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { shopValidation } from "./ShopValidation";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Logo from "@/assets/Logo";
 
 const CreateShopForm = () => {
     const [imageFiles, setImageFiles] = useState<File[] | []>([]);

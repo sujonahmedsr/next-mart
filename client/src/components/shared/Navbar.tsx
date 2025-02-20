@@ -1,5 +1,5 @@
 "use client"
-import Logo from "@/app/assets/Logo";
+import Logo from "@/assets/Logo";
 import { Button } from "../ui/button";
 import { Heart, LogOut, ShoppingBag } from "lucide-react";
 import { useUser } from "@/context/UserContext";

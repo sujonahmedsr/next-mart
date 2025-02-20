@@ -22,7 +22,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
-import Logo from "@/app/assets/Logo";
+import Logo from "@/assets/Logo";
 import { NavMain } from "./nav-main";
 import { NavUser } from "./nav-user";
 
