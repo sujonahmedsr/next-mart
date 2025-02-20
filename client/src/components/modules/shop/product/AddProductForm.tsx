@@ -75,14 +75,14 @@ export default function AddProductsForm() {
     appendColor({ value: "" });
   };
 
-  const { append: appendFeatures, fields: featureFields } = useFieldArray({
-    control: form.control,
-    name: "keyFeatures",
-  });
+  // const { append: appendFeatures, fields: featureFields } = useFieldArray({
+  //   control: form.control,
+  //   name: "keyFeatures",
+  // });
 
-  const addFeatures = () => {
-    appendFeatures({ value: "" });
-  };
+  // const addFeatures = () => {
+  //   appendFeatures({ value: "" });
+  // };
 
   const { append: appendSpec, fields: specFields } = useFieldArray({
     control: form.control,
@@ -354,7 +354,7 @@ export default function AddProductsForm() {
           </div>
 
           <div>
-            <div className="flex justify-between items-center border-t border-b py-3 my-5">
+            {/* <div className="flex justify-between items-center border-t border-b py-3 my-5">
               <p className="text-primary font-bold text-xl">Key Features</p>
               <Button
                 onClick={addFeatures}
@@ -364,9 +364,9 @@ export default function AddProductsForm() {
               >
                 <Plus className="text-primary" />
               </Button>
-            </div>
+            </div> */}
 
-            <div className="my-5">
+            {/* <div className="my-5">
               {featureFields.map((featureField, index) => (
                 <div key={featureField.id}>
                   <FormField
@@ -384,7 +384,7 @@ export default function AddProductsForm() {
                   />
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
 
           <div>
