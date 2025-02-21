@@ -9,10 +9,9 @@ import { Button } from "@/components/ui/button";
 import { IProduct } from "@/types/product";
 import { Checkbox } from "@/components/ui/checkbox"
 import { useState } from "react";
-import DiscountModal from "./DiscountModal";
 
 const ManageProducts = ({ products }: { products: IProduct[] }) => {
-  const [selectedIds, setSelectedIds] = useState<string[]>([])
+  const [selectedIds, setSelectedids] = useState<string[]>([])
 
   const router = useRouter();
 
@@ -42,9 +41,9 @@ const ManageProducts = ({ products }: { products: IProduct[] }) => {
           checked={row.getIsSelected()}
           onCheckedChange={(value) => {
             if (value) {
-              setSelectedIds((prev) => [...prev, row?.original?._id])
+              setSelectedids((prev) => [...prev, row?.original?._id])
             }else{
-              setSelectedIds(
+              setSelectedids(
                 selectedIds.filter(id => id !== row?.original?._id)
               )
             }
@@ -149,10 +148,6 @@ const ManageProducts = ({ products }: { products: IProduct[] }) => {
           >
             Add Product <Plus />
           </Button>
-          <DiscountModal
-            selectedIds={selectedIds}
-            setSelectedIds={setSelectedIds}
-          />
         </div>
       </div>
       <NMTable columns={columns} data={products || []} />

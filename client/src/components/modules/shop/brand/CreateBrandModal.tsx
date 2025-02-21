@@ -29,6 +29,7 @@ const CreateBrandModal = () => {
   const form = useForm();
 
   const {
+    reset,
     formState: { isSubmitting },
   } = form || {};
 
@@ -42,6 +43,7 @@ const CreateBrandModal = () => {
 
       if (res.success) {
         toast.success(res.message);
+        reset()
       } else {
         toast.error(res.message);
       }
