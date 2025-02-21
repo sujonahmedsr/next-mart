@@ -37,8 +37,8 @@ import { toast } from "sonner";
 import { updateProduct } from "@/services/Product";
 import { IBrand } from "@/types/brand";
 import { getAllBrands } from "@/services/brand";
-import Logo from "@/app/assets/Logo";
 import { IProduct } from "@/types/product";
+import Logo from "@/assets/Logo";
 
 export default function UpdateProductForm({ product }: { product: IProduct }) {
   const [imageFiles, setImageFiles] = useState<File[] | []>([]);

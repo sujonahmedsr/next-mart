@@ -18,14 +18,16 @@ import { createShop } from "@/services/Shop";
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
-// import { shopValidation } from "./ShopValidation";
-// import { zodResolver } from "@hookform/resolvers/zod";
+import { shopValidation } from "./ShopValidation";
+import { zodResolver } from "@hookform/resolvers/zod";
 import Logo from "@/assets/Logo";
 
 const CreateShopForm = () => {
     const [imageFiles, setImageFiles] = useState<File[] | []>([]);
     const [imagePreview, setImagePreview] = useState<string[] | []>([]);
-    const form = useForm();
+    const form = useForm({
+        resolver: zodResolver(shopValidation)
+    });
     const {
         formState: { isSubmitting },
     } = form;
