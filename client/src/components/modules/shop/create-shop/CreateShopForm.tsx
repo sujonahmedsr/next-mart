@@ -18,16 +18,14 @@ import { createShop } from "@/services/Shop";
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
-import { shopValidation } from "./ShopValidation";
-import { zodResolver } from "@hookform/resolvers/zod";
+// import { shopValidation } from "./ShopValidation";
+// import { zodResolver } from "@hookform/resolvers/zod";
 import Logo from "@/assets/Logo";
 
 const CreateShopForm = () => {
     const [imageFiles, setImageFiles] = useState<File[] | []>([]);
     const [imagePreview, setImagePreview] = useState<string[] | []>([]);
-    const form = useForm({
-        resolver: zodResolver(shopValidation)
-    });
+    const form = useForm();
     const {
         formState: { isSubmitting },
     } = form;
@@ -50,8 +48,10 @@ const CreateShopForm = () => {
             formData.append("logo", imageFiles[0] as File);
 
             const res = await createShop(formData);
-
-            if (res.success) {
+            
+            if (res.success === false) {
+                toast.success(res.message);
+            }else{
                 toast.success(res.message);
             }
         } catch (err: any) {
@@ -95,7 +95,7 @@ const CreateShopForm = () => {
                                 <FormItem>
                                     <FormLabel>Business License Number</FormLabel>
                                     <FormControl>
-                                        <Input {...field} placeholder="Business License Number" value={field.value || ""} />
+                                        <Input {...field} placeholder="Business License Number" type="number" value={field.value || ""} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -162,7 +162,7 @@ const CreateShopForm = () => {
                                 <FormItem>
                                     <FormLabel>Tax Identification Number</FormLabel>
                                     <FormControl>
-                                        <Input {...field} placeholder="Tax Identification Number" value={field.value || ""} />
+                                        <Input {...field} placeholder="Tax Identification Number" type="number" value={field.value || ""} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
