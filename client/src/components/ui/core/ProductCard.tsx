@@ -8,6 +8,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { currencyFormatter } from "@/lib/currencyFormatter";
+import { addProduct } from "@/redux/features/cartSlice";
+import { useAppDispatch } from "@/redux/hooks";
 import { IProduct } from "@/types/product";
 
 import { Heart, ShoppingCart, Star } from "lucide-react";
@@ -15,6 +18,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ProductCard = ({ product }: { product: IProduct }) => {
+  const dispatch = useAppDispatch()
+  const addProductCart = (product: IProduct) =>{
+    dispatch(addProduct(product))
+  }
   return (
     <Card className="p-3">
       <CardHeader className="relative p-0 h-48">
@@ -54,10 +61,10 @@ const ProductCard = ({ product }: { product: IProduct }) => {
                 <span className="font-semibold mr-2 text-orange-400">
                   $ {product?.offerPrice}
                 </span>
-                <del className="font-semibold text-xs">$ {product?.price}</del>
+                <del className="font-semibold text-xs">$ {currencyFormatter(product?.price)}</del>
               </>
             ) : (
-              <span className="font-semibold">$ {product?.price}</span>
+              <span className="font-semibold">$ {currencyFormatter(product?.price)}</span>
             )}
           </p>
 
@@ -81,6 +88,8 @@ const ProductCard = ({ product }: { product: IProduct }) => {
             Buy Now
           </Button>
           <Button
+          onClick={() => addProductCart(product)
+          }
             disabled={product?.stock === 0}
             variant="outline"
             size="sm"
