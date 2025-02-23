@@ -139,7 +139,8 @@ export const shippingAddressSelector = (state: RootState) => {
     return state.cart.shippingAddress;
 };
 
-export const { addProduct,
+export const { 
+    addProduct,
     incrementOrderQuantity,
     decrementOrderQuantity,
     removeProduct,
