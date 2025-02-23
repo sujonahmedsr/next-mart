@@ -6,6 +6,7 @@ import { useUser } from '@/context/UserContext';
 import { currencyFormatter } from '@/lib/currencyFormatter';
 import { citySelector, clearCart, grandTotalSelector, orderedProductsSelector, orderSelector, shippingAddressSelector, shippingCostSelector, subTotalSelector } from '@/redux/features/cartSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { createOrder } from '@/services/cart';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import { toast } from 'sonner';
@@ -44,17 +45,17 @@ const PaymentDetails = () => {
                 throw new Error("Shipping address is missing");
             }
 
-            // const res = await createOrder(order);
+            const res = await createOrder(order);
 
-            // if (res.success) {
-            //     toast.success(res.message, { id: orderLoading });
-            //     dispatch(clearCart());
-            //     router.push(res.data.paymentUrl);
-            // }
+            if (res.success) {
+                toast.success(res.message, { id: orderLoading });
+                dispatch(clearCart());
+                router.push(res.data.paymentUrl);
+            }
 
-            // if (!res.success) {
-            //     toast.error(res.message, { id: orderLoading });
-            // }
+            if (!res.success) {
+                toast.error(res.message, { id: orderLoading });
+            }
         } catch (error: any) {
             toast.error(error.message, { id: orderLoading });
         }
