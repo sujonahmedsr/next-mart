@@ -56,19 +56,19 @@ export default function FilterSidebar() {
     <div className="p-6  bg-white rounded-lg">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-semibold">Filter</h2>
-        {searchParams.toString().length > 0 && (
-          <Button
-            onClick={() => {
-              router.push(`${pathname}`, {
-                scroll: false,
-              });
-            }}
-            size="sm"
-            className="bg-black hover:bg-gray-700 ml-5"
-          >
-            Clear Filters
-          </Button>
-        )}
+        {/* {searchParams.toString().length > 0 && ( */}
+        <Button
+          onClick={() => {
+            router.push(`${pathname}`, {
+              scroll: false,
+            });
+          }}
+          size="sm"
+          className="bg-black hover:bg-gray-700 ml-5"
+        >
+          Clear Filters
+        </Button>
+        {/* )} */}
       </div>
       {/* Filter by Price */}
       <div className="mb-6">
