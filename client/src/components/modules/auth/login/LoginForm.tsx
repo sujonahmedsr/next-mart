@@ -20,12 +20,12 @@ import Logo from "@/assets/Logo";
 import { loginSchema } from "./loginValidation";
 import { loginUser, reCaptchaTokenVerification } from "@/services/AuthService";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useUser } from "@/context/UserContext";
 
 export default function LoginForm() {
   const form = useForm({
     resolver: zodResolver(loginSchema),
   });
-
   const [reCaptchaStatus, setReCaptchaStatus] = useState(false);
 
   const searchParams = useSearchParams()
@@ -35,6 +35,8 @@ export default function LoginForm() {
   const {
     formState: { isSubmitting },
   } = form;
+
+  const { setIsLoading } = useUser()
 
   const handleReCaptcha = async (value: string | null) => {
     try {
@@ -50,6 +52,7 @@ export default function LoginForm() {
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
       const res = await loginUser(data);
+      setIsLoading(true)
       if (res?.success) {
         toast.success(res?.message);
         if (redirect) {

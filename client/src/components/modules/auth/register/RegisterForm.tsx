@@ -19,6 +19,7 @@ import { toast } from "sonner";
 import Logo from "@/assets/Logo";
 import { registrationSchema } from "./registerValidation";
 import { registerUser } from "@/services/AuthService";
+import { useUser } from "@/context/UserContext";
 
 export default function RegisterForm() {
   const form = useForm({
@@ -33,9 +34,13 @@ export default function RegisterForm() {
   const passwordConfirm = form.watch("passwordConfirm");
   //   console.log(password, passwordConfirm);
 
+  const { setIsLoading } = useUser()
+
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
       const res = await registerUser(data);
+      setIsLoading(true)
+
       if (res?.success) {
         toast.success(res?.message);
       } else {
@@ -49,7 +54,7 @@ export default function RegisterForm() {
   return (
     <div className="border-2 border-gray-300 rounded-xl flex-grow max-w-md w-full p-5">
       <div className="flex items-center space-x-4 ">
-      <Link href={'/'}>
+        <Link href={'/'}>
           <h1 className="text-2xl font-black flex items-center">
             <Logo />
             Next Mart
