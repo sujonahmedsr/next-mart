@@ -18,7 +18,7 @@ const AllProductsPage = async ({
 
   const { data: categories } = await getAllCategories();
   const { data: products } = await getAllProducts(undefined, undefined, query);
-
+  
 
   return (
     <NMContainer>

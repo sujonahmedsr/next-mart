@@ -102,6 +102,7 @@ const createProduct = async (
 //    };
 // };
 
+// Product.service.ts
 
 const getAllProduct = async (query: Record<string, unknown>) => {
    const {
